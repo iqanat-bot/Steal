@@ -11,10 +11,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
       - name: Make gradlew executable
-        run: chmod +x ./gradlew
+        run: |
+          touch gradlew
+          chmod +x ./gradlew
       - name: Build Debug APK
         run: ./gradlew assembleDebug
       - name: Upload APK
